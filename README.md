@@ -3,13 +3,13 @@
 This project supports [`vf-eleventy`](https://github.com/visual-framework/vf-eleventy)-based
 projects with reusable componentised code, modules and config.
 
-## What's inside and what it does
+## What's here and what it does
 
-- `index.js`: the main Eleventy plugin.
+- `index.js`: the main Eleventy plugin
 
 ### Config
 
-- `config/vfEleventyCommonConfig.js`: Reusable config for sane defaults and to load the below tags and filters.
+- `config/vfEleventyCommonConfig.js`: Reusable config for sane defaults and to load the below tags and filters
 
 ### Nunjucks tags
 
@@ -43,5 +43,5 @@ config.addPlugin(vfEleventyExtension);
 4. in `gulpfile.js` you should have:
 
 ```js
-global.vfDocsPath      = __dirname + '/node_modules/\@visual-framework/vf-eleventy--extensions/fractal/docs';
+global.vfDocsPath = __dirname + '/node_modules/\@visual-framework/vf-eleventy--extensions/fractal/docs';
 ```

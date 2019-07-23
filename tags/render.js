@@ -1,4 +1,3 @@
-
 // A port-fork-enhancement of the Fractal render extension for Nunjucks for 11ty
 // Original: https://github.com/frctl/nunjucks/blob/develop/src/extensions/render.js
 

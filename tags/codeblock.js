@@ -38,7 +38,7 @@ module.exports = function(nunjucksEngine,fractal){
           if(typeof txt == "undefined") return;
           txt = hljs.highlight(format, txt).value;
 
-          return `<code class="Code Code--lang-${format} vf-code-example"><pre class="vf-code-example__pre">${txt}</pre></code>`;
+          return new nunjucksEngine.runtime.SafeString(`<code class="Code Code--lang-${format} vf-code-example"><pre class="vf-code-example__pre">${txt}</pre></code>`);
         };
 
     };
