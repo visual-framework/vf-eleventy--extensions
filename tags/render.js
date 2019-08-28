@@ -33,7 +33,7 @@ module.exports = function (nunjucksEngine,fractal) {
       const highlight = args[3].highlight || false;
       const entity = source.find(handle);
       if (!entity) {
-        console.warn(`Could not render component '${handle}' - component not found.`);
+        console.warn(`Could not render component '${handle}' - component was not found.`);
         ret = new nunjucksEngine.runtime.SafeString(`<!-- Could not render component '${handle}' - component not found. -->`);
         callback(null, ret)
         return;
@@ -68,7 +68,10 @@ module.exports = function (nunjucksEngine,fractal) {
               }
               callback(null, ret);
           }).catch(err => {
-              callback(err);
+            // if we still fail, we're likely missing a nested sub-componenent
+            console.warn(`Could not render component '${handle}' - a nested-component was not found.`);
+            ret = new nunjucksEngine.runtime.SafeString(`<!-- Could not render component '${handle}' - a nested-component not found. -->`);
+            callback(null, ret)
           });
       });
   };
