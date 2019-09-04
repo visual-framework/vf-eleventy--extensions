@@ -15,6 +15,7 @@ module.exports = function(config) {
   // --------------
   config.addFilter("markdown", require("./filters/markdown.js") );
   config.addFilter("squash", require("./filters/squash.js") );
+  config.addFilter("path", require("./filters/path.js") );
 
   // Tags
   // --------------
