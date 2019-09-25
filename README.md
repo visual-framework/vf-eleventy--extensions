@@ -18,6 +18,7 @@ in `./tags/`
 - `codeblock.js`: outputs highlight code markup
 - `markdwon_tag.js`: process a text area as markdown
 - `render.js`: port-fork-enhancement of the Fractal render extension for Nunjucks for 11ty and the VF
+- `spaceless.js`: trim unneeded whitespace
 
 ### Nunjucks filters
 
@@ -25,6 +26,13 @@ in `./filters/`
 
 - `markdown.js`: process a string as markdown
 - `section.js`: split the content into excerpt and remainder
+- `path.js`: catch references to the "path" filter which is not part of 11ty and results in obtuse error codes
+
+### Assorted utilities
+
+In `./utils/`
+
+- `vf-build-search-index.gulpfile.js`: scans compiled html to make a JS object search index
 
 ## Usage
 
