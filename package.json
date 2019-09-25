@@ -1,6 +1,6 @@
 {
   "name": "@visual-framework/vf-eleventy--extensions",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "description": "Reusable componentised code, modules and config for vf-eleventy based projects.",
   "main": "index.js",
   "scripts": {
