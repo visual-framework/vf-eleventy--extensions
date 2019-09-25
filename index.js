@@ -50,4 +50,18 @@ module.exports = function(config) {
     return new fractalRenderExtension(nunjucksEngine);
   });
 
+  // Return a section of code without spaces
+  // {% spaceless -%}
+  //   <a href="#"
+  //     class="vf-link"
+  //       >
+  //     I have a bunch of
+  //     silly whitespace that can mass up pre-processors
+  // </a>
+  // {% endspaceless %}
+  config.addNunjucksTag("spaceless", function(nunjucksEngine) {
+    var SpacelessExtension = require("./tags/spaceless.js");
+    return new SpacelessExtension(nunjucksEngine);
+  });
+
 };
