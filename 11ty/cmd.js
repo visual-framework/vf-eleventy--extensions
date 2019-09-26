@@ -9,7 +9,7 @@
 //   elev.write().then( function() {
 //     console.log('Done building 11ty');
 //     yourCallBack();
-//   });  
+//   });
 
 const pkg = require("../../../\@11ty/eleventy/package.json");
 const chalk = require("chalk"); // node 4+
@@ -71,13 +71,16 @@ elev
     } else if (argv.help) {
       console.log(elev.getHelp());
     } else if (argv.serve) {
-      elev.watch().then(function() {
-        elev.serve(argv.port);
-      });
+      // Serve is instead run by the parent JS
+      // elev.watch().then(function() {
+      //   elev.serve(argv.port);
+      // });
     } else if (argv.watch) {
-      elev.watch();
+      // Watch is instead run by the parent JS
+      // elev.watch();
     } else {
-      // await elev.write();
+      // No default
+      // elev.write();
     }
   })
   .then(function() {
