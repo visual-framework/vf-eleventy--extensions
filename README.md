@@ -21,7 +21,7 @@ in `/11ty`
 
 - `eleventy-cmd.js`: a fork of the default Eleventy cmd.js
 - `index.js`: reusable extensions/config for Eleventy and to load the below tags and filters
-    - `config/vfEleventyCommonPlugin.js`: Reusable config for sane defaults 
+    - `vfEleventyCommonPlugin.js`: Reusable config for sane defaults 
 
 ### Nunjucks tags
 

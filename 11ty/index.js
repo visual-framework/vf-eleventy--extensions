@@ -9,7 +9,7 @@ module.exports = function(config) {
 
   // Common configuration
   // --------------
-  config.addPlugin(require("vfEleventyCommonPlugin.js"));
+  config.addPlugin(require("./vfEleventyCommonPlugin.js"));
 
   // Filters
   // --------------
