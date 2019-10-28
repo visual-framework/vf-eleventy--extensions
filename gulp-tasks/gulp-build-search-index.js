@@ -3,7 +3,7 @@
 /**
  * Scan the build directory and make a search index.
  * Usage:
- *  require('./node_modules/\@visual-framework/vf-eleventy--extensions/utils/vf-build-search-index.gulpfile.js')(gulp, path, buildDestionation);
+ *  require('./node_modules/\@visual-framework/vf-extensions/gulp-tasks/vf-build-search-index.gulpfile.js')(gulp, path, buildDestionation);
  *  gulp.task('dev', gulp.series('vf-build-search-index'));
  * 
  * Results in a search index at:

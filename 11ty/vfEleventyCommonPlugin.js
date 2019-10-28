@@ -1,3 +1,5 @@
+// TODO: refactor this, some of this could go in index.js, some should be better broken out
+
 module.exports = function(config) {
   // get the fractal enviroment
   var fractal = global.fractal;

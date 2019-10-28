@@ -1,15 +1,27 @@
-# vf-eleventy--extensions
+# vf-extensions
 
-This project supports [`vf-eleventy`](https://github.com/visual-framework/vf-eleventy)-based
-projects with reusable componentised code, modules and config.
+This project supports sites using Visual Framework components, like [`vf-eleventy`](https://github.com/visual-framework/vf-eleventy)
+It has reusable componentised code, Gulp taks, modules and config.
 
 ## What's here and what it does
 
-- `index.js`: the main Eleventy plugin
+### Gulp tasks
 
-### Config
+in `./gulp-tasks/`
 
-- `config/vfEleventyCommonConfig.js`: Reusable config for sane defaults and to load the below tags and filters
+- `gulp-build-search-index.js`: scans compiled html to make a JS object search index
+- `_gulp_rollup.js`: require this bundle and get the files below
+    - `gulp-eleventy.js`: specific to running Eleventy
+    - `gulp-fractal.js`: specific to running Fractal
+    - `gulp-util.js`: utility tasks
+
+### Eleventy
+
+in `/11ty`
+
+- `eleventy-cmd.js`: a fork of the default Eleventy cmd.js
+- `index.js`: reusable extensions/config for Eleventy and to load the below tags and filters
+    - `config/vfEleventyCommonPlugin.js`: Reusable config for sane defaults 
 
 ### Nunjucks tags
 
@@ -30,26 +42,26 @@ in `./filters/`
 
 ### Assorted utilities
 
-In `./utils/`
+In `./utils/` 
 
-- `vf-build-search-index.gulpfile.js`: scans compiled html to make a JS object search index
+- `minify-html.js`: pass in html content and minify
 
-## Usage
+## Usage with Eleventy
 
 Note: Projects utilising `vf-eleventy` make use of this package by defualt.
 
 1. a project based off [`vf-eleventy`](https://github.com/visual-framework/vf-eleventy)
-2. `yarn add @visual-framework/vf-eleventy--extensions`
+2. `yarn add @visual-framework/vf-extensions`
 
 3. in `eleventy.js` you should have:
 
 ```js
-const vfEleventyExtension = require("@visual-framework/vf-eleventy--extensions");
+  const vfEleventyExtension = require("@visual-framework/vf-extensions\/11ty");
 config.addPlugin(vfEleventyExtension);
 ```
 
 4. in `gulpfile.js` you should have:
 
 ```js
-global.vfDocsPath = __dirname + '/node_modules/\@visual-framework/vf-eleventy--extensions/fractal/docs';
+require('./node_modules/\@visual-framework/vf-extensions/gulp-tasks/_gulp_rollup.js')(gulp, path, componentPath, componentDirectories, buildDestionation);
 ```

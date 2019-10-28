@@ -2,34 +2,27 @@
 
 // Forked from eleventy v0.9.0
 
-// This is a subtle fork for the main Elevent cmd.js to behave as a module, returning `elev` so it can be npm-required
-// It allows things like:
+// This is a subtle fork for the main Eleventy cmd.js to behave as a module, returning `elev` so it can be npm-required
+// It allows things like the below in gulp or paren node js; for more see https://github.com/khawkins98/gulp-eleventy-example
 //
-//   let elev = require('./node_modules/\@visual-framework/vf-eleventy--extensions/11ty/cmd.js');
+//   let elevExtensions = require.resolve('@visual-framework/vf-extensions/');
+//   let elev = require(path.resolve(elevExtensions,'../11ty/eleventy-cmd.js'));
 //   elev.write().then( function() {
 //     console.log('Done building 11ty');
 //     yourCallBack();
 //   });
 
-const pkg = require("../../../\@11ty/eleventy/package.json");
 const chalk = require("chalk"); // node 4+
-require("please-upgrade-node")(pkg, {
-  message: function(requiredVersion) {
-    return chalk.red(
-      `Eleventy requires Node ${requiredVersion}. You’ll need to upgrade to use it!`
-    );
-  }
-});
 
 if (process.env.DEBUG) {
   require("time-require");
 }
 
-const EleventyErrorHandler = require("../../../\@11ty/eleventy/src/EleventyErrorHandler");
+const EleventyErrorHandler = require("@11ty/eleventy/src/EleventyErrorHandler");
 
 const argv = require("minimist")(process.argv.slice(2));
-const Eleventy = require("../../../\@11ty/eleventy/src/Eleventy");
-const EleventyCommandCheck = require("../../../\@11ty/eleventy/src/EleventyCommandCheck");
+const Eleventy = require("@11ty/eleventy");
+const EleventyCommandCheck = require("@11ty/eleventy/src/EleventyCommandCheck");
 let elev = new Eleventy(argv.input, argv.output);
 
 try {
@@ -58,7 +51,6 @@ try {
   let isVerbose = process.env.DEBUG ? false : !argv.quiet;
   elev.setIsVerbose('*');
 
-
 } catch (e) {
   EleventyErrorHandler.fatal(e, "Eleventy fatal error");
 }
@@ -72,19 +64,11 @@ elev
       console.log(elev.getHelp());
     } else if (argv.serve) {
       // Serve is instead run by the parent JS
-      // elev.watch().then(function() {
-      //   elev.serve(argv.port);
-      // });
     } else if (argv.watch) {
       // Watch is instead run by the parent JS
-      // elev.watch();
     } else {
       // No default
-      // elev.write();
     }
-  })
-  .then(function() {
-    // console.log('done in cmd');
   })
   .catch(EleventyErrorHandler.fatal);
 
