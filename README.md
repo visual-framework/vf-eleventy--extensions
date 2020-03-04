@@ -30,6 +30,9 @@ in `./tags/`
 - `codeblock.js`: outputs highlight code markup
 - `markdwon_tag.js`: process a text area as markdown
 - `render.js`: port-fork-enhancement of the Fractal render extension for Nunjucks for 11ty and the VF
+  - `{% render '@'+variant.handle, variant.context, true, { escape: false, beautify: true, codetype: 'html', highlight: true } %}`
+  - second property is for merging the parent context to set defaults
+  - third option set escaping of code, beautify (formatting), code type (default: html) and highlighting (hljs)
 - `spaceless.js`: trim unneeded whitespace
 
 ### Nunjucks filters
