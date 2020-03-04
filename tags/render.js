@@ -45,7 +45,7 @@ module.exports = function (nunjucksEngine,fractal) {
       } else if (merge) {
         // Inherit unspecified settings from the parent
         // If parent context has svg: true, and you don't specify, then you'll inherit
-        Object.assign(context, defaultContext);
+        context = Object.assign(defaultContext, context);
       }
 
       source.resolve(context).then(context => {

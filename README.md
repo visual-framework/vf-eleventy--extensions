@@ -1,7 +1,7 @@
 # vf-extensions
 
 This project supports sites using Visual Framework components, like [`vf-eleventy`](https://github.com/visual-framework/vf-eleventy)
-It has reusable componentised code, Gulp taks, modules and config.
+It has reusable componentised code, Gulp tasks, modules and config.
 
 ## What's here and what it does
 
@@ -51,7 +51,7 @@ In `./utils/`
 
 ## Usage with Eleventy
 
-Note: Projects utilising `vf-eleventy` make use of this package by defualt.
+Note: Projects utilising `vf-eleventy` make use of this package by default.
 
 1. a project based off [`vf-eleventy`](https://github.com/visual-framework/vf-eleventy)
 2. `yarn add @visual-framework/vf-extensions`
